@@ -61,8 +61,8 @@ class Gauge:
 
 if __name__ == '__main__':
     bg_c = (56, 56, 56)
-    # circle_c = (55, 77, 91)
-    circle_c = (126, 245, 95)
+    circle_c = (55, 77, 91)
+    # circle_c = (126, 245, 95)
 
     pygame.init()
     # width, height = (640, 480)
@@ -72,7 +72,7 @@ if __name__ == '__main__':
     # background = py.transform.scale(background,(630,520)) ## Make it the same size as the screen
     clock = pygame.time.Clock()
     screen = pygame.display.set_mode((width, height))
-    pygame.display.set_caption('Wahaj Gauge Pygame')
+    pygame.display.set_caption('Tempurature')
     fps = 6
     FONT = pygame.font.SysFont('ARIAL', 75)
     my_gauge = Gauge(
