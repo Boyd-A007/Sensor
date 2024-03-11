@@ -29,11 +29,10 @@ while running:
     print(temp)
 
     font = pygame.font.Font(None, 36)
-    text = font.render(temp, 1, (10,10,10))
+    text = font.render(str(temp), 1, (10,10,10))
     textpos = text.get_rect()
     textpos.cneterx = background.get_rect().centerx
     background.blit(text, textpos)
-
 
     # flip the display to put the work on screen
     pygame.display.flip()
