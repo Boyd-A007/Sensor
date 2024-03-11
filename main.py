@@ -41,8 +41,8 @@ while running:
 
     temp = sense.get_temperature()
     text = font.render(str(temp), 1, (10, 10, 10))
+    background.fill((250, 250, 250))
     background.blit(text, textpos)
-    screen.fill("grey")
     screen.blit(background, (0, 0))
     pygame.display.flip()
 
