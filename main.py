@@ -6,10 +6,29 @@ sense = SenseHat()
 
 # setup pygame
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
-clock = pygame.time.Clock()
+screen = pygame.display.set_mode((150, 50))
+pygame.display.set_caption('Temp Gauge')
 running = True
-dt = 0
+
+# fill the screen with a solid color to clear it
+background = pygame.Surface(screen.get_size())
+background = background.convert()
+background.fill((250, 250, 250))
+
+# RENDER GAME HERE
+temp = sense.get_temperature()
+print(temp)
+
+font = pygame.font.Font(None, 36)
+text = font.render(str(temp), 1, (10, 10, 10))
+textpos = text.get_rect()
+textpos.centerx = background.get_rect().centerx
+background.blit(text, textpos)
+
+# Blit it all to the screen
+screen.blit(background, (0, 0))
+pygame.display.flip()
+
 
 while running:
     # pol for events
@@ -19,24 +38,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # fill the screen with a solid color to clear it
-    background = pygame.Surface(screen.get_size())
-    background = background.convert()
-    background.fill((250, 250, 205))
-
-    # RENDER GAME HERE
-    temp = sense.get_temperature()
-    print(temp)
-
-    font = pygame.font.Font(None, 36)
-    text = font.render(str(temp), 1, (10,10,10))
-    textpos = text.get_rect()
-    textpos.centerx = background.get_rect().centerx
-    background.blit(text, textpos)
-
-    # flip the display to put the work on screen
+    screen.blit(background, (0, 0))
     pygame.display.flip()
-
-    clock.tick(60)
 
 pygame.quit()
