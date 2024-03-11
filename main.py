@@ -20,13 +20,20 @@ while running:
             running = False
 
     # fill the screen with a solid color to clear it
-    screen.fill("grey")
+    background = pygame.Surface(screen.get_size())
+    background = background.convert()
+    background.fill((250, 250, 205))
 
     # RENDER GAME HERE
     temp = sense.get_temperature()
     print(temp)
 
-    screen.blit(temp)
+    font = pygame.font.Font(None, 36)
+    text = font.render(temp, 1, (10,10,10))
+    textpos = text.get_rect()
+    textpos.cneterx = background.get_rect().centerx
+    background.blit(text, textpos)
+
 
     # flip the display to put the work on screen
     pygame.display.flip()
