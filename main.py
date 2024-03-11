@@ -17,8 +17,6 @@ background.fill((250, 250, 250))
 
 # RENDER GAME HERE
 temp = sense.get_temperature()
-print(temp)
-
 font = pygame.font.Font(None, 36)
 text = font.render(str(temp), 1, (10, 10, 10))
 textpos = text.get_rect()
