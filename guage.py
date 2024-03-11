@@ -91,6 +91,7 @@ if __name__ == '__main__':
         temp = sense.get_temperature()
         print(temp)
         percentage = int(temp)
+        print(percentage)
         screen.fill("grey")
         percentage = 0
         screen.fill(bg_c)
