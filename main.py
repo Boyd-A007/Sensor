@@ -1,4 +1,8 @@
 import pygame
+import pygame.gfxdraw
+import math
+from sense_hat import SenseHat
+sense = SenseHat()
 
 # setup pygame
 pygame.init()
@@ -16,10 +20,11 @@ while running:
             running = False
 
     # fill the screen with a solid color to clear it
-    screen.fill("purple")
+    screen.fill("grey")
 
     # RENDER GAME HERE
-    pygame.draw.circle(screen, "red", player_pos, 40)
+    temp = sense.get_temperature()
+    print(temp)
 
     # flip the display to put the work on screen
     pygame.display.flip()
