@@ -2,6 +2,8 @@ import pygame as py
 import pygame.gfxdraw
 import math
 from random import randint
+from sense_hat import SenseHat
+sense = SenseHat()
 
 class Gauge:
 
@@ -56,13 +58,14 @@ class Gauge:
             for i in range(0,10):
                 ac [3] = int(150 - i*15)
                 pygame.gfxdraw.arc(screen, int(lx), int(ly), (self.thickness//2)+i , fill_angle -225-10, fill_angle - 225-180-10, ac)
+
 if __name__ == '__main__':
     bg_c = (56, 56, 56)
-#    circle_c = (55, 77, 91)
+    # circle_c = (55, 77, 91)
     circle_c = (126, 245, 95)
 
     pygame.init()
-    #width, height = (640, 480)
+    # width, height = (640, 480)
     width = 640
     height = 480
     # background = py.image.load("gaugebg.png") ## Load the image file
@@ -85,14 +88,11 @@ if __name__ == '__main__':
     ifdelay = 0
     while True:
         # FOR SHOWING CHANGE IN GAUGE
-     # rangauge = ser.readline()
-     # percentage = int(rangauge)
-      # screen.blit(background,(0,0)) ## Blit the background onto the screen first
-      screen.fill("purple")
-      percentage=randint(77, 84)
-           # percentage = 0
-         #       screen.fill(bg_c)
-      #my_gauge.draw(percent=20)
-      my_gauge.draw(percent=percentage)
-      pygame.display.update()
-      clock.tick(fps)
+        temp = sense.get_temperature()
+        percentage = int(temp)
+        screen.fill("grey")
+        percentage = 0
+        screen.fill(bg_c)
+        my_gauge.draw(percent=20)
+        pygame.display.update()
+        clock.tick(fps)
