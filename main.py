@@ -6,7 +6,7 @@ sense = SenseHat()
 
 # setup pygame
 pygame.init()
-screen = pygame.display.set_mode((150, 50))
+screen = pygame.display.set_mode((300, 50))
 pygame.display.set_caption('Temp Gauge')
 running = True
 
@@ -35,9 +35,13 @@ while running:
     # a QUIT event means the user clicked the [x] button on the window
 
     for event in pygame.event.get():
+
         if event.type == pygame.QUIT:
             running = False
 
+    temp = sense.get_temperature()
+    text = font.render(str(temp), 1, (10, 10, 10))
+    background.blit(text, textpos)
     screen.blit(background, (0, 0))
     pygame.display.flip()
 
