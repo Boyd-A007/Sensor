@@ -39,7 +39,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    temp = round(sense.get_temperature())
+    temp = round(sense.get_temperature(), 2)
     text = font.render(str(temp), 1, (10, 10, 10))
     background.fill((250, 250, 250))
     background.blit(text, textpos)
