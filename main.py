@@ -26,6 +26,8 @@ while running:
     temp = sense.get_temperature()
     print(temp)
 
+    screen.blit(temp)
+
     # flip the display to put the work on screen
     pygame.display.flip()
 
