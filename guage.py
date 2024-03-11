@@ -22,7 +22,7 @@ class Gauge:
         per=percent
         if percent > 100:
             percent = 100
-        if per <=40:
+        if per <=5:
             per=0
         if per > 100:
             per = 100
