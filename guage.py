@@ -65,8 +65,8 @@ if __name__ == '__main__':
     #width, height = (640, 480)
     width = 640
     height = 480
-    background = py.image.load("gaugebg.png") ## Load the image file
-    background = py.transform.scale(background,(630,520)) ## Make it the same size as the screen
+    # background = py.image.load("gaugebg.png") ## Load the image file
+    # background = py.transform.scale(background,(630,520)) ## Make it the same size as the screen
     clock = pygame.time.Clock()
     screen = pygame.display.set_mode((width, height))
     pygame.display.set_caption('Wahaj Gauge Pygame')
@@ -87,7 +87,8 @@ if __name__ == '__main__':
         # FOR SHOWING CHANGE IN GAUGE
      # rangauge = ser.readline()
      # percentage = int(rangauge)
-      screen.blit(background,(0,0)) ## Blit the background onto the screen first
+      # screen.blit(background,(0,0)) ## Blit the background onto the screen first
+      screen.fill("purple")
       percentage=randint(77, 84)
            # percentage = 0
          #       screen.fill(bg_c)
