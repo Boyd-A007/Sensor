@@ -89,6 +89,7 @@ if __name__ == '__main__':
     while True:
         # FOR SHOWING CHANGE IN GAUGE
         temp = sense.get_temperature()
+        print(temp)
         percentage = int(temp)
         screen.fill("grey")
         percentage = 0
