@@ -16,9 +16,9 @@ background = background.convert()
 background.fill((250, 250, 250))
 
 # RENDER GAME HERE
-temp = sense.get_temperature()
+temp = round(sense.get_temperature() * 1.8 + 32)
 font = pygame.font.Font(None, 36)
-text = font.render(str(temp), 1, (10, 10, 10))
+text = font.render(str(temp) + "f", 1, (10, 10, 10))
 textpos = text.get_rect()
 textpos.centerx = background.get_rect().centerx
 background.blit(text, textpos)
